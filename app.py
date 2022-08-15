@@ -1,23 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 from flask import Flask,render_template,request
-
-
-# In[2]:
-
-
 app = Flask(__name__)
-
-
-# In[3]:
-
-
 import joblib
-@app.route("/",methods=["GET","POST"])#decorator
+
+@app.route("/",methods=["GET","POST"])
 def index():
     if request.method == "POST":
         rates = float(request.form.get("rates"))
@@ -31,14 +16,8 @@ def index():
         return(render_template("index.html",result1="waiting",result2="waiting"))
 
 
-# In[ ]:
-
-
 if __name__ == "__main__":
     app.run()#host="127.0.0.1",port=int("80")
-
-
-# In[ ]:
 
 
 
